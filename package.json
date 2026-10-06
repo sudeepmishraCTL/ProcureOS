@@ -12,9 +12,6 @@
     "format": "prettier --write .",
     "start": "node .output/server/index.mjs"
   },
-  "overrides": {
-    "rolldown": "1.2.1"
-  },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
