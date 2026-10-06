@@ -1,0 +1,163 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ProcureOS design system — dense enterprise procurement UI.
+ * Neutral ink canvas, single restrained accent, monospaced numerics.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --font-sans: "Lora", Georgia, ui-serif, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-positive: var(--positive);
+  --color-positive-foreground: var(--positive-foreground);
+  --color-positive-soft: var(--positive-soft);
+  --color-danger-soft: var(--danger-soft);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--ring);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --shadow-panel: 0 1px 2px oklch(0 0 0 / 0.4), 0 10px 30px oklch(0 0 0 / 0.35);
+  --shadow-drawer: -14px 0 48px oklch(0 0 0 / 0.5);
+}
+
+/* Dark canvas — muted graphite with a single restrained teal accent. */
+:root {
+  --radius: 0.375rem;
+  --background: oklch(0.158 0.008 165);
+  --foreground: oklch(0.955 0.004 120);
+  --surface: oklch(0.203 0.009 165);
+  --surface-muted: oklch(0.243 0.009 165);
+  --card: oklch(0.203 0.009 165);
+  --card-foreground: oklch(0.955 0.004 120);
+  --popover: oklch(0.213 0.009 165);
+  --popover-foreground: oklch(0.955 0.004 120);
+  --primary: oklch(0.73 0.115 172);
+  --primary-foreground: oklch(0.16 0.02 170);
+  --secondary: oklch(0.262 0.009 165);
+  --secondary-foreground: oklch(0.92 0.005 140);
+  --muted: oklch(0.243 0.009 165);
+  --muted-foreground: oklch(0.715 0.012 150);
+  --accent: oklch(0.3 0.04 172);
+  --accent-foreground: oklch(0.89 0.07 172);
+  --destructive: oklch(0.68 0.16 25);
+  --destructive-foreground: oklch(0.16 0.02 25);
+  --danger-soft: oklch(0.29 0.065 25);
+  --warning: oklch(0.79 0.13 78);
+  --warning-foreground: oklch(0.87 0.1 82);
+  --warning-soft: oklch(0.305 0.055 78);
+  --positive: oklch(0.73 0.13 162);
+  --positive-foreground: oklch(0.85 0.11 162);
+  --positive-soft: oklch(0.285 0.05 162);
+  --border: oklch(0.305 0.009 165);
+  --border-strong: oklch(0.395 0.011 165);
+  --input: oklch(0.32 0.009 165);
+  --ring: oklch(0.73 0.115 172);
+  --sidebar: oklch(0.183 0.009 165);
+  --sidebar-foreground: oklch(0.93 0.005 140);
+  --sidebar-accent: oklch(0.29 0.038 172);
+  --sidebar-accent-foreground: oklch(0.9 0.07 172);
+  --sidebar-border: oklch(0.29 0.009 165);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  th,
+  button,
+  label,
+  select,
+  option {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  input,
+  textarea,
+  select {
+    color-scheme: dark;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+}
+
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+@utility label-xs {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  font-weight: 500;
+}
+
+@utility panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+@utility data-grid {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 0.8125rem;
+}
