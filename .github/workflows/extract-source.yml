@@ -9,19 +9,20 @@ permissions:
 
 jobs:
   extract-source:
-    if: ${{ hashFiles('ProcureOS-independent.zip') != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Extract project
+        if: ${{ hashFiles('ProcureOS-independent.zip') != '' }}
         run: |
           unzip -q ProcureOS-independent.zip
           cp -a ProcureOS/. .
           rm -rf ProcureOS ProcureOS-independent.zip
 
       - name: Commit extracted source
+        if: ${{ hashFiles('package.json') != '' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
